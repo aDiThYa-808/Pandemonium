@@ -1,2 +1,2 @@
 # Pandemonium
- A single-player first-person horror game for android.
+ A single-player,first-person, Atmospheric horror game for android.
