@@ -256,10 +256,12 @@ PlayableDirector:
     value: {fileID: 456504046}
   - key: {fileID: 6783618711583891326, guid: c34ea7fd0f180454bb3b4497d4a9b97c, type: 2}
     value: {fileID: 159620092}
-  - key: {fileID: 4124759353551677053, guid: c34ea7fd0f180454bb3b4497d4a9b97c, type: 2}
-    value: {fileID: 1838640915}
   - key: {fileID: -4585156203832442825, guid: c34ea7fd0f180454bb3b4497d4a9b97c, type: 2}
     value: {fileID: 1124224418}
+  - key: {fileID: -4720554363909205645, guid: c34ea7fd0f180454bb3b4497d4a9b97c, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 9154656982318036013, guid: c34ea7fd0f180454bb3b4497d4a9b97c, type: 2}
+    value: {fileID: 233368827}
   m_ExposedReferences:
     m_References: []
 --- !u!4 &192079279
@@ -1560,7 +1562,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 160, y: 30}
+  m_SizeDelta: {x: 180, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1838640913
 MonoBehaviour:
@@ -1582,7 +1584,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Tap to continue
+  m_text: Tap here to continue
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1591,8 +1593,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 16777215
-  m_fontColor: {r: 1, g: 1, b: 1, a: 0}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1609,7 +1611,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 21.65
+  m_fontSize: 18.2
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1

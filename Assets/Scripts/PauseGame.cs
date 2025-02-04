@@ -1,13 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using StarterAssets;
 
 public class PauseGame : MonoBehaviour
 {
     [Header("Pause Menu Components")]
     public GameObject PauseMenu;
-    public GameObject MainMenu;
-    public GameObject SettingsMenu;
+    public GameObject loadscreen;
+    public Dropdown DropDown;
 
     [Header("SFX")]
     public AudioClip clickSound;
@@ -34,10 +37,41 @@ public class PauseGame : MonoBehaviour
         Time.timeScale = 1f;
     }
 
-    public void Settingsmenu()
+    
+
+    public void LoadMainMenu()
     {
+        Time.timeScale = 1f;
         audiosrc.Play();
-        SettingsMenu.SetActive(true);
-        MainMenu.SetActive(false);
+        var scene = SceneManager.LoadSceneAsync("Menu");
+        scene.allowSceneActivation = false;
+        loadscreen.SetActive(true);
+        StartCoroutine(LoadScene(scene));
     }
+
+    private IEnumerator LoadScene(AsyncOperation scene)
+    {
+       
+        // Optionally, you can also check if the scene is almost loaded
+        while (scene.progress < 0.9f)
+        {
+            // This is just to show progress, you can update a loading bar here
+            Debug.Log("Loading progress: " + scene.progress);
+            yield return null;
+        }
+
+        // Now the scene is ready, so activate it
+        scene.allowSceneActivation = true;
+
+
+    }
+
+    public void adjustGraphics(int qualityIndex)
+    {
+        QualitySettings.SetQualityLevel(qualityIndex);
+    }
+
+    
+
+    
 }

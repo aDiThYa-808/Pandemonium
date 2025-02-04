@@ -10,7 +10,9 @@ public class btnManager : MonoBehaviour
     public AudioClip btnClick;
     private AudioSource audioSource;
     public GameObject camera;
+    public GameObject creditsImg;
     private AudioSource bgm;
+
 
     private void Start()
     {
@@ -29,17 +31,15 @@ public class btnManager : MonoBehaviour
     public void PlayGame()
     {
         audioSource.Play();
-        bgm.Stop();
-        loadscreen.SetActive(true);  // Activate loading screen
-        var scene = SceneManager.LoadSceneAsync("Hospital");  // Start loading the "Hospital" scene asynchronously
-        scene.allowSceneActivation = false;  // Prevent automatic scene activation
-        StartCoroutine(LoadScene(scene));  // Start the coroutine to control when to activate the scene
+        bgm.Stop();        
+        StartCoroutine(LoadScene());  // Start the coroutine to control when to activate the scene
     }
 
-    private IEnumerator LoadScene(AsyncOperation scene)
+    private IEnumerator LoadScene()
     {
-        // Wait for a custom amount of time or until the scene is almost loaded
-        yield return new WaitForSeconds(8);
+        AsyncOperation scene = SceneManager.LoadSceneAsync("Hospital");  // Start loading the "Hospital" scene asynchronously
+        scene.allowSceneActivation = false;  // Prevent automatic scene activation
+        loadscreen.SetActive(true);  // Activate loading screen
 
         // Optionally, you can also check if the scene is almost loaded
         while (scene.progress < 0.9f)
@@ -48,6 +48,8 @@ public class btnManager : MonoBehaviour
             Debug.Log("Loading progress: " + scene.progress);
             yield return null;
         }
+
+        
 
         // Now the scene is ready, so activate it
         scene.allowSceneActivation = true;
@@ -60,7 +62,14 @@ public class btnManager : MonoBehaviour
     public void credits()
     {
         audioSource.Play();
+        creditsImg.SetActive(true);
 
+    }
+
+    public void BackToMenu()
+    {
+        audioSource.Play();
+        creditsImg.SetActive(false);
     }
 
     public void quitgame()

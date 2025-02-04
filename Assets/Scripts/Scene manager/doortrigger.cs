@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class doortrigger : MonoBehaviour
 {
-    public GameObject button;
+    public GameObject DoorPrompt;
     public GameObject LoadingScreen;
     public AudioClip btnClick;
     private AudioSource audioSource;
@@ -26,7 +26,7 @@ public class doortrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        button.SetActive(true);
+        DoorPrompt.SetActive(true);
     }
 
     //private void OnTriggerStay(Collider other)
@@ -39,11 +39,12 @@ public class doortrigger : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        button.SetActive(false);
+        DoorPrompt.SetActive(false);
     }
 
     public async void loadscene()
     {
+        DoorPrompt.SetActive(false);
         audioSource.Play();
         LoadingScreen.SetActive(true);
 
@@ -55,7 +56,7 @@ public class doortrigger : MonoBehaviour
         private IEnumerator LoadScene(AsyncOperation scene)
         {
             // Wait for a custom amount of time or until the scene is almost loaded
-            yield return new WaitForSeconds(4);
+            yield return new WaitForSeconds(6);
 
             // Optionally, you can also check if the scene is almost loaded
             while (scene.progress < 0.9f)
